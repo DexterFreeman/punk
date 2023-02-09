@@ -1,0 +1,21 @@
+.main-content__card{
+    margin: 2%;
+    width: 300px;
+    border: 2px solid black;
+    display: grid;
+    grid-template-rows: 350px 50px 250px;
+    
+    img{
+        height: 100%;
+        width: 100%;
+    }
+    h1{
+       
+        font-size: larger;
+    }
+    h2{
+    
+        font-size: large;
+        text-overflow: ellipsis;
+    }
+}

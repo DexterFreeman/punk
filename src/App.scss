@@ -16,18 +16,6 @@
     background-color: beige;
   
   }
-  .main-content{
-    background-color: burlywood;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    &__card{
-      border-radius: 10px;
-      background-color: aqua;
-      width: 20%;
-      height: 23%;
-      margin: 2%;
-    }
-  }
+
 }
 
