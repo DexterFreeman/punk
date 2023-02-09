@@ -1,21 +1,12 @@
 import React from 'react'
-
+import Card from '../../components/Card/Card'
 const MainContent = () => {
   return (
     <div className='main-content'>
-        <div className='main-content__card'>Hello :)</div>
-        <div className='main-content__card'>Hello :)</div>
-        <div className='main-content__card'>Hello :)</div>
-        <div className='main-content__card'>Hello :)</div>
-        <div className='main-content__card'>Hello :)</div>
-        <div className='main-content__card'>Hello :)</div>
-        <div className='main-content__card'>Hello :)</div>
-        <div className='main-content__card'>Hello :)</div>
-        <div className='main-content__card'>Hello :)</div>
-        <div className='main-content__card'>Hello :)</div>
-        <div className='main-content__card'>Hello :)</div>
-        <div className='main-content__card'>Hello :)</div>
-        <div className='main-content__card'>Hello :)</div>
+        <Card />
+        <Card />
+        <Card />
+        <Card />
     </div>
   )
 }
