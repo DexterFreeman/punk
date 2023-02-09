@@ -3,19 +3,27 @@
     width: 300px;
     border: 2px solid black;
     display: grid;
-    grid-template-rows: 350px 50px 250px;
+    grid-template-rows: 450px 50px 200px;
+    padding: 20px;
     
     img{
         height: 100%;
         width: 100%;
     }
     h1{
-       
-        font-size: larger;
+        font-size: 40px;
+
+        padding: 4px;
     }
     h2{
-    
+        
         font-size: large;
-        text-overflow: ellipsis;
+        padding: 4px;
+        overflow: scroll;
+      
     }
+}
+
+.main-content__card h2::-webkit-scrollbar{
+    display: none;
 }
