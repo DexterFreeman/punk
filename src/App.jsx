@@ -1,29 +1,15 @@
 
 import './App.scss';
+import MainContent from './containers/MainContent/MainContent';
+import NavBar from './containers/NavBar/NavBar';
 import punk from "./data/punk"
 
 
 const App = () => {
   return (
     <div className="App">
-      <div className='nav-bar'>
-        Nav bar
-      </div>
-      <div className='main-content'>
-        <div className='main-content__card'>Hello :)</div>
-        <div className='main-content__card'>Hello :)</div>
-        <div className='main-content__card'>Hello :)</div>
-        <div className='main-content__card'>Hello :)</div>
-        <div className='main-content__card'>Hello :)</div>
-        <div className='main-content__card'>Hello :)</div>
-        <div className='main-content__card'>Hello :)</div>
-        <div className='main-content__card'>Hello :)</div>
-        <div className='main-content__card'>Hello :)</div>
-        <div className='main-content__card'>Hello :)</div>
-        <div className='main-content__card'>Hello :)</div>
-        <div className='main-content__card'>Hello :)</div>
-        <div className='main-content__card'>Hello :)</div>
-      </div>
+      <NavBar/>
+      <MainContent/>
     </div>
   );
 }
