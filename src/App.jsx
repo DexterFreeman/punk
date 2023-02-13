@@ -13,9 +13,10 @@ const App = () => {
   const [isClassicFilter, setIsClassicFilter ] = useState(false);  
   const [isHighAPVFilter, setIsHighAPVFilter ] = useState(false);  
   const [isAcidicFilter, setIsAcidicFilter ] = useState(false);  
-
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleInput = (event) => {
+   
     switch (event.target.id){
       case "1":
         setIsHighAPVFilter(!isHighAPVFilter);
@@ -28,6 +29,10 @@ const App = () => {
       case "3":
         setIsAcidicFilter(!isAcidicFilter);
         break;
+
+      default:
+        setSearchTerm(event.target.value);
+        break;
     }
   }
   return (
@@ -37,7 +42,7 @@ const App = () => {
       <NavBar handleInput={handleInput} />
 
      
-      <MainContent data={punk} filterAPV={isHighAPVFilter} filterClassic={isClassicFilter} filterHighAcidity={isAcidicFilter}/>
+      <MainContent data={punk} searchTerm={searchTerm} filterAPV={isHighAPVFilter} filterClassic={isClassicFilter} filterHighAcidity={isAcidicFilter}/>
         
     </div>
   
