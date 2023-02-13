@@ -14,6 +14,15 @@ const App = () => {
   const [isHighAPVFilter, setIsHighAPVFilter ] = useState(false);  
   const [isAcidicFilter, setIsAcidicFilter ] = useState(false);  
   const [searchTerm, setSearchTerm] = useState("");
+  const [data, setData] = useState(); 
+
+
+  const getData = async () => {
+    const res = await fetch("https://api.punkapi.com/v2/beers");
+    const data = await res.json()
+    setData(data)
+  }
+  getData();
 
   const handleInput = (event) => {
    
@@ -35,14 +44,20 @@ const App = () => {
         break;
     }
   }
+
+
+  
+
   return (
 
     <div className="App">
  
       <NavBar handleInput={handleInput} />
-
+    
      
-      <MainContent data={punk} searchTerm={searchTerm} filterAPV={isHighAPVFilter} filterClassic={isClassicFilter} filterHighAcidity={isAcidicFilter}/>
+      {data && (
+        <MainContent data={data} searchTerm={searchTerm} filterAPV={isHighAPVFilter} filterClassic={isClassicFilter} filterHighAcidity={isAcidicFilter}/>
+        )}
         
     </div>
   

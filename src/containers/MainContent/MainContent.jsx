@@ -1,13 +1,15 @@
 import React from 'react'
 import Card from '../../components/Card/Card'
 import "./MainContent.scss"
+
 const MainContent = (props) => {
 
     const {data, filterAPV, filterClassic, filterHighAcidity, searchTerm} = props
     let beerListJSX;
-    
-    let beerFilter = data;
-       //Data which matches their respective filters. 
+    let beerFilter = data; 
+
+
+    //Data which matches their respective filters. 
     const filteredClassicData = data.filter((beer) => {
         const year = beer.first_brewed.split("/")
         if (parseInt(year[1]) < 2010){
@@ -17,13 +19,10 @@ const MainContent = (props) => {
         return false; 
         }
     });
-
     const filteredHighAPVData = data.filter((beer) => beer.abv > 6);
     const filteredHighAcidityData = data.filter((beer) => beer.ph < 4)
 
    
-
-
    if (filterAPV){
         
         beerFilter = data.filter((beer) => filteredHighAPVData.includes(beer)); 
@@ -95,9 +94,7 @@ const MainContent = (props) => {
             beerListJSX = data.map((beer) => {
                 return <Card key={beer.id} name={beer.name} description={beer.description} image={beer.image_url} />
             });
-        }
-        
-        
+        } 
    }
 
     return (
