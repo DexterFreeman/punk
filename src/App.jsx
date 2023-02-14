@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.scss';
 import FilteredContent from './containers/FilteredContent/FilteredContent';
@@ -22,7 +22,12 @@ const App = () => {
     const data = await res.json()
     setData(data)
   }
-  getData();
+
+  useEffect(() => {
+    
+    getData(); 
+  }, [])
+
 
   const handleInput = (event) => {
    
@@ -51,7 +56,7 @@ const App = () => {
   return (
 
     <div className="App">
- 
+      
       <NavBar handleInput={handleInput} />
     
      

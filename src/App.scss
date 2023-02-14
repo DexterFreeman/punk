@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap');
+
 *{
   padding: 0;
   margin: 0;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: 'Anonymous Pro', monospace;
 }
 
 .App{
@@ -9,8 +11,8 @@
 
   height: 100vh;
   width: 100%;
-  grid-template-columns: 1fr;
-  grid-template-rows: 10% 90%;
+  grid-template-columns: 10% 90%;
+  grid-template-rows: 1fr;
  
 
 }

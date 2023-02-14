@@ -22,13 +22,21 @@ const MainContent = (props) => {
     const filteredHighAPVData = data.filter((beer) => beer.abv > 6);
     const filteredHighAcidityData = data.filter((beer) => beer.ph < 4)
 
+    const filterSearch = (filter, array) => {
+        return array.filter((beer) => beer.name.toLowerCase().includes(filter.toLowerCase()))
+    }
+
+   if(searchTerm){
+        beerFilter = filterSearch(searchTerm, beerFilter)
+   }
+   else{
+    beerFilter = data
+   }
    
    if (filterAPV){
         
         beerFilter = data.filter((beer) => filteredHighAPVData.includes(beer)); 
-        if (searchTerm != ""){
-            beerFilter = beerFilter.filter((beer) => beer.name.includes(searchTerm)); 
-        }
+        
         if (filterClassic){
             beerFilter = beerFilter.filter((beer) => filteredClassicData.includes(beer));
             if (filterHighAcidity){
@@ -55,9 +63,7 @@ const MainContent = (props) => {
    else if (filterClassic){
         
         beerFilter = data.filter((beer) => filteredClassicData.includes(beer));
-        if (searchTerm != ""){
-            beerFilter = beerFilter.filter((beer) => beer.name.includes(searchTerm)); 
-        }
+       
         if (filterHighAcidity){
             beerFilter = beerFilter.filter((beer) => filteredHighAcidityData.includes(beer));
             beerListJSX = beerFilter.map((beer) => {
@@ -73,28 +79,13 @@ const MainContent = (props) => {
 
    else if (filterHighAcidity){
         beerFilter = data.filter((beer) => filteredHighAcidityData.includes(beer));
-        if (searchTerm != ""){
-            beerFilter = beerFilter.filter((beer) => beer.name.includes(searchTerm)); 
-        }
         beerListJSX = beerFilter.map((beer) => {
             return <Card key={beer.id} name={beer.name} description={beer.description} image={beer.image_url} />
         }); 
    }
 
    else{
-    
-        if (searchTerm != ""){
-            beerFilter = beerFilter.filter((beer) => beer.name.includes(searchTerm));
-            beerListJSX = beerFilter.map((beer) => {
-                return <Card key={beer.id} name={beer.name} description={beer.description} image={beer.image_url} />
-            });
-            
-        }
-        else {
-            beerListJSX = data.map((beer) => {
-                return <Card key={beer.id} name={beer.name} description={beer.description} image={beer.image_url} />
-            });
-        } 
+        beerListJSX = beerFilter.map((beer) => { return <Card key={beer.id} name={beer.name} description={beer.description} image={beer.image_url} />});    
    }
 
     return (
