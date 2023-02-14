@@ -1,5 +1,6 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import autoAnimate from '@formkit/auto-animate'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.scss';
 import FilteredContent from './containers/FilteredContent/FilteredContent';
@@ -15,7 +16,7 @@ const App = () => {
   const [isAcidicFilter, setIsAcidicFilter ] = useState(false);  
   const [searchTerm, setSearchTerm] = useState("");
   const [data, setData] = useState(); 
-
+  const parent = useRef(null)
 
   const getData = async () => {
     const res = await fetch("https://api.punkapi.com/v2/beers");
@@ -24,7 +25,7 @@ const App = () => {
   }
 
   useEffect(() => {
-    
+    parent.current && autoAnimate(parent.current)
     getData(); 
   }, [])
 
@@ -55,7 +56,7 @@ const App = () => {
 
   return (
 
-    <div className="App">
+    <div ref={parent} className="App">
       
       <NavBar handleInput={handleInput} />
     

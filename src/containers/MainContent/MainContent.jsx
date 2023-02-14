@@ -1,12 +1,20 @@
 import React from 'react'
 import Card from '../../components/Card/Card'
 import "./MainContent.scss"
+import { useRef, useState, useEffect } from 'react'
+import autoAnimate from '@formkit/auto-animate'
 
 const MainContent = (props) => {
 
     const {data, filterAPV, filterClassic, filterHighAcidity, searchTerm} = props
     let beerListJSX;
     let beerFilter = data; 
+    const parent = useRef(null)
+
+
+    useEffect(() => {
+        parent.current && autoAnimate(parent.current)
+      }, [parent])
 
 
     //Data which matches their respective filters. 
@@ -89,7 +97,7 @@ const MainContent = (props) => {
    }
 
     return (
-        <div className='main-content'>
+        <div  ref={parent} className='main-content'>
            {beerListJSX}
         </div>
     )
