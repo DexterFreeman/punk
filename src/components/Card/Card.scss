@@ -1,8 +1,8 @@
 .main-content__card{
+    
     margin: 0.5%;
-    height: 800px;
-    width: 400px;
-   
+    height: 400px;
+    width: 200px;
     display: flex;
     flex-direction: column;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -11,7 +11,8 @@
  
 
     h1{
-        font-size: 30px;
+        
+        font-size: 15px;
         text-decoration: underline;
         margin-bottom: 2%;
        
@@ -32,8 +33,7 @@
     }
    
     h2{
-        
-        font-size: large;
+        font-size: medium;
         overflow: scroll;
       
     }
@@ -45,4 +45,19 @@
   }
 .main-content__card h2::-webkit-scrollbar{
     display: none;
+}
+
+@media screen and (min-width: 1500px) {
+    .main-content__card{
+
+        height: 800px;
+        width: 400px;
+        h1{
+            font-size: 30px;
+    
+        }
+        h2{
+            font-size: large;
+        }
+    }
 }

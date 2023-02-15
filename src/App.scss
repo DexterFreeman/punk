@@ -8,12 +8,19 @@
 
 .App{
   display: grid;
-
   height: 100vh;
   width: 100%;
-  grid-template-columns: 10% 90%;
+  grid-template-columns: 25% 75%;
   grid-template-rows: 1fr;
  
 
 }
 
+@media screen and (min-width: 1500px) {
+  .App{
+ 
+    grid-template-columns: 15% 85%;
+   
+  
+  }
+}
