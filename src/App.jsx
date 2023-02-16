@@ -1,12 +1,11 @@
 
 import { useState, useRef, useEffect } from 'react';
 import autoAnimate from '@formkit/auto-animate'
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+
 import './App.scss';
-import FilteredContent from './containers/FilteredContent/FilteredContent';
 import MainContent from './containers/MainContent/MainContent';
 import NavBar from './containers/NavBar/NavBar';
-import punk from "./data/punk"
+
 
 
 const App = () => {
