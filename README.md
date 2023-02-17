@@ -19,4 +19,4 @@ To filter the data, I simply just filtered the fetched API data by checking if t
 The checkboxs change a useState from true to false which are then passed into the MainContent container props in order to know which filter is currently on, the search bar simply passes it's value as I can check if there is one depending on whether that value is empty or not. 
 
 
-![image of project](https://gifyu.com/image/Sqacw)
+![image of project](https://s9.gifyu.com/images/giffcae2454462e5e46.gif)
