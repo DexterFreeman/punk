@@ -6,7 +6,7 @@ import autoAnimate from '@formkit/auto-animate'
 
 const MainContent = (props) => {
 
-    const {data, filterAPV, filterClassic, filterHighAcidity, searchTerm} = props
+    const {data, filterAPV, handleClick, filterClassic, filterHighAcidity, searchTerm} = props
     let beerListJSX;
     let beerFilter = data; 
     const parent = useRef(null)
@@ -50,19 +50,19 @@ const MainContent = (props) => {
             if (filterHighAcidity){
                 beerFilter = beerFilter.filter((beer) => filteredHighAcidityData.includes(beer));
                 beerListJSX = beerFilter.map((beer) => {
-                    return <Card key={beer.id} name={beer.name} description={beer.description} image={beer.image_url} />
+                    return <Card handleClick={handleClick} key={beer.id} name={beer.name} description={beer.description} image={beer.image_url} />
                 });
             }
         }
         else if (filterHighAcidity){
             beerFilter = beerFilter.filter((beer) => filteredHighAcidityData.includes(beer));
             beerListJSX = beerFilter.map((beer) => {
-                return <Card key={beer.id} name={beer.name} description={beer.description} image={beer.image_url} />
+                return <Card handleClick={handleClick} key={beer.id} name={beer.name} description={beer.description} image={beer.image_url} />
             });
         }
         else {
             beerListJSX = beerFilter.map((beer) => {
-                return <Card key={beer.id} name={beer.name} description={beer.description} image={beer.image_url} />
+                return <Card handleClick={handleClick} key={beer.id} name={beer.name} description={beer.description} image={beer.image_url} />
             });
         }
    }
@@ -75,12 +75,12 @@ const MainContent = (props) => {
         if (filterHighAcidity){
             beerFilter = beerFilter.filter((beer) => filteredHighAcidityData.includes(beer));
             beerListJSX = beerFilter.map((beer) => {
-                return <Card key={beer.id} name={beer.name} description={beer.description} image={beer.image_url} />
+                return <Card handleClick={handleClick} key={beer.id} name={beer.name} description={beer.description} image={beer.image_url} />
             });
         }
         else {
             beerListJSX = beerFilter.map((beer) => {
-                return <Card key={beer.id} name={beer.name} description={beer.description} image={beer.image_url} />
+                return <Card handleClick={handleClick} key={beer.id} name={beer.name} description={beer.description} image={beer.image_url} />
             });
         }
    }
@@ -88,12 +88,12 @@ const MainContent = (props) => {
    else if (filterHighAcidity){
         beerFilter = data.filter((beer) => filteredHighAcidityData.includes(beer));
         beerListJSX = beerFilter.map((beer) => {
-            return <Card key={beer.id} name={beer.name} description={beer.description} image={beer.image_url} />
+            return <Card handleClick={handleClick} key={beer.id} name={beer.name} description={beer.description} image={beer.image_url} />
         }); 
    }
 
    else{
-        beerListJSX = beerFilter.map((beer) => { return <Card key={beer.id} name={beer.name} description={beer.description} image={beer.image_url} />});    
+        beerListJSX = beerFilter.map((beer) => { return <Card handleClick={handleClick} key={beer.id} name={beer.name} description={beer.description} image={beer.image_url} />});    
    }
 
     return (

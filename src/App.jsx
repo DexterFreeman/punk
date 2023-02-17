@@ -5,6 +5,7 @@ import autoAnimate from '@formkit/auto-animate'
 import './App.scss';
 import MainContent from './containers/MainContent/MainContent';
 import NavBar from './containers/NavBar/NavBar';
+import BeerInfo from './containers/BeerInfo/BeerInfo';
 
 
 
@@ -15,12 +16,14 @@ const App = () => {
   const [isAcidicFilter, setIsAcidicFilter ] = useState(false);  
   const [searchTerm, setSearchTerm] = useState("");
   const [data, setData] = useState(); 
+  const [isShowCard, setIsShowCard] = useState(false); 
+  const [beerToShow, setBeerToShow] = useState();
   const parent = useRef(null)
 
   const getData = async () => {
     const res = await fetch("https://api.punkapi.com/v2/beers");
-    const data = await res.json()
-    setData(data)
+    const datares = await res.json()
+    setData(datares)
   }
 
   useEffect(() => {
@@ -28,6 +31,19 @@ const App = () => {
     getData(); 
   }, [])
 
+
+  const handleClick = (event) => {
+
+    event.preventDefault();
+    console.log(event.currentTarget);
+  
+    setIsShowCard(!isShowCard);
+    setBeerToShow(event.currentTarget.id);
+  }
+
+  const handleToggleCard = () => {
+    setIsShowCard(!isShowCard);
+  }
 
   const handleInput = (event) => {
    
@@ -61,9 +77,14 @@ const App = () => {
     
      
       {data && (
-        <MainContent data={data} searchTerm={searchTerm} filterAPV={isHighAPVFilter} filterClassic={isClassicFilter} filterHighAcidity={isAcidicFilter}/>
-        )}
+        isShowCard ? 
+        <BeerInfo beerObject={data.filter((beer) => beer.name === beerToShow)} handleToggleCard={handleToggleCard}/>
+        :
         
+        <MainContent data={data} onClick={handleClick} searchTerm={searchTerm} filterAPV={isHighAPVFilter} filterClassic={isClassicFilter} filterHighAcidity={isAcidicFilter} handleClick={handleClick}/> 
+        
+        )}
+
     </div>
   
 
