@@ -2,7 +2,6 @@ import React from 'react'
 import './BeerInfo.scss'
 const BeerInfo = (props) => {
     const {beerObject, handleToggleCard} = props; 
-    console.log(beerObject)
   return (
     <div className='beer-info' onClick={handleToggleCard}>
         <div className='beer-info__container'>

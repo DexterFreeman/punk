@@ -33,10 +33,7 @@ const App = () => {
 
 
   const handleClick = (event) => {
-
     event.preventDefault();
-    console.log(event.currentTarget);
-  
     setIsShowCard(!isShowCard);
     setBeerToShow(event.currentTarget.id);
   }
